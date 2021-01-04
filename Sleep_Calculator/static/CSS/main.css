@@ -174,6 +174,19 @@ a {
   margin: auto;
 }
 
+#time-result-display {
+  background-color: #2B2A3C;
+  color: #FD6E65;
+  margin: 50px auto 50px auto;
+  width: 40%;
+  height: 217px;
+  text-align: center;
+}
+
+#time-result-display h1 {
+  margin: auto;
+}
+
 
 .calculate-btn {
   padding: 10px 40px;
@@ -183,4 +196,5 @@ a {
   border: none;
   font-size: 2.2rem;
   border-radius: 50px;
+  box-shadow: 2px 2px 3px #282739;
 }
