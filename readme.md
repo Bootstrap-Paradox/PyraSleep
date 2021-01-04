@@ -36,7 +36,7 @@ features : {
 
 ### Our Goal is to Transform Sleep Pattern Disruption using a Method called Power Naps.
 
-## Power Naps
+# Power Naps
 
 ### There are Multiple Sleep Patterns that are not considered, but are a Great way of Transforming One's Sleeping Pattern.
 ---
