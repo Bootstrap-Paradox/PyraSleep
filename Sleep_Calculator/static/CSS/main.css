@@ -1,17 +1,32 @@
 
+/* Following are the Css for the Main Types */
+
+html{
+  /* These are the Initial styling for the Webpage */
+  font-size: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue";
+}
+
+
 body {
   background-color: #323145;
   color:#FFFFFF;
+  font-size: 1.6rem;
+  text-align: center;
 }
 
 header {
   background-color: #282739;
   display: flex;
+  font-size: 1.7rem;
   height: 149px;
   flex-direction: row;
   align-items:center;
   text-align: center;
 }
+
+
+/* Components for the Header */
 
 .custom-navbar {
   display: flex;
@@ -28,13 +43,10 @@ header {
 }
 
 
-
 a {
   color: #62607C;
   text-decoration: none;
 }
-
-/* Components for the Header */
 
 .logo {
   cursor: pointer;
@@ -70,7 +82,7 @@ a {
 
 
 
-/* Components for the Home Page */
+/* == == Components for the Home Page == == */
 
 /* Section-1 */
 
@@ -152,4 +164,23 @@ a {
   text-align: center;
   align-items: center;
 
+}
+
+
+/* Following is the Section for the Calculate Page */
+
+#calculate-page {
+  width: 60%;
+  margin: auto;
+}
+
+
+.calculate-btn {
+  padding: 10px 40px;
+  margin: auto;
+  color: #FF6584;
+  background-color: #3F3D56;
+  border: none;
+  font-size: 2.2rem;
+  border-radius: 50px;
 }
