@@ -33,6 +33,12 @@ features : {
 
 ### Calculate the Amount of sleep you need to be fresh for your ***Work*** and ***Stay Active*** Through the day
 
+
+### Our Goal is to Transform Sleep Pattern Disruption using a Method called Power Naps.
+
+## Power Naps
+
+### There are Multiple Sleep Patterns that are not considered, but are a Great way of Transforming One's Sleeping Pattern.
 ---
 
 > Your future depends on your dreams, so go to sleep.
