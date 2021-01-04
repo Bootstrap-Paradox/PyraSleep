@@ -1,0 +1,155 @@
+
+body {
+  background-color: #323145;
+  color:#FFFFFF;
+}
+
+header {
+  background-color: #282739;
+  display: flex;
+  height: 149px;
+  flex-direction: row;
+  align-items:center;
+  text-align: center;
+}
+
+.custom-navbar {
+  display: flex;
+  padding: 56px 0px 56px 0px;
+  flex-direction: row;
+  align-items: center;
+  justify-content:center;
+  text-align: center;
+}
+
+.custom-navbar h1{
+  position: absolute;
+  left: 6%;
+}
+
+
+
+a {
+  color: #62607C;
+  text-decoration: none;
+}
+
+/* Components for the Header */
+
+.logo {
+  cursor: pointer;
+  font-size: 48px;
+  font-weight: 400;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #FF6584;
+}
+
+.navigation {
+  position: absolute;
+  left: 55%
+}
+
+.navigation li{
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.navigation li a {
+  text-decoration:none;
+  transition: all 0.3s ease 0s;
+}
+
+.navigation li a:hover {
+  color: #FF6584;
+}
+
+
+
+
+
+/* Components for the Home Page */
+
+/* Section-1 */
+
+.home-page {
+  display: grid;
+  grid-template-rows: 1080px 250px;
+  grid-template-columns: 100%;
+}
+
+.home-section-1 {
+  height:800px;
+  border: 2px solid;
+  border-color: red;
+}
+
+
+.CTA-section{
+  position: absolute;
+  left: 99px;
+  top: 249px;
+}
+
+.CTA-section h1, h2, h3, h4, h5, h6 {
+  color: #62607C;
+}
+
+
+.CTA-section h1 {
+  font-size: 49px;
+}
+
+
+.CTA-section button{
+  border: none;
+  padding: 23px 63px;
+  margin: 100px 0px 0px 0px;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: #3F3D56;
+  color: #FD6E65;
+  transition: all 0.3s ease 0s;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 3px 3px 16px #282739;
+}
+
+.CTA-section button:hover {
+  background-color: #FD6E65;
+  color: #3F3D56;
+  box-shadow: 12px 12px 16px #282739;
+}
+
+
+.moonlight {
+  position: relative;
+  left:400px;
+  bottom: -200px;
+  width: 80%;
+  transform: scale(-1,1);
+}
+
+
+/* Section-2 */
+
+.home-section-2 {
+  background-color: #2C2B3C;
+  width: 100%;
+  margin: 0px;
+  border: 2px solid;
+  border-color: white;
+  height: 500px;
+}
+
+.sleep-info {
+  background-color: #323145;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  margin: 40px;
+  text-align: center;
+  align-items: center;
+
+}

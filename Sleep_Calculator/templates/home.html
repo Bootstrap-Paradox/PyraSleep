@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div>
+  <div class="container-fluid home-page">
+
+  <div class="home-section-1">
+    <img class="moonlight" src="{{ url_for('static', filename='Images/moonlight.svg') }}"></img>
+    <div class="CTA-section">
+    <h1>We are Humans,<br>Let's be One.</h1>
+    <button>Calculate</button>
+    </div>
+  </div>
+
+
+  <div class=" home-section-2 container-fluid">
+
+    <div class="sleep-info container">
+      <h2>What is Sleep Exactly?</h2>
+      <p>It is Something that we often forget and loose the ability to.</p>
+    </div>
+
+  </div>
+
+
+  </div>
+</div>
+
+
+
+{% endblock %}
