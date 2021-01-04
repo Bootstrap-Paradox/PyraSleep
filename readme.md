@@ -1,4 +1,4 @@
-This is a Text File where all of the Information about the project will be provide.- Note only for Development Purposes.
+<!-- This is a Text File where all of the Information about the project will be provide.- Note only for Development Purposes.
 
 What are the things that i must provide in this file?
 1 => title
@@ -8,10 +8,13 @@ What are the things that i must provide in this file?
 5 => Starting Date
 6 => Estimated Finish Date
 7 => Features
+-->
 
 # Sleep Calculator
 
-## Calculate the Amount of sleep you need to be fresh for your ***Work*** and ***Stay Active*** Through the day
+### Calculate the Amount of sleep you need to be fresh for your ***Work*** and ***Stay Active*** Through the day
+
+
 
 > Your future depends on your dreams, so go to sleep.
 >
