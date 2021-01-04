@@ -8,17 +8,7 @@ What are the things that i must provide in this file?
 5 => Starting Date
 6 => Estimated Finish Date
 7 => Features
--->
 
-# Sleep Calculator
-
-### Calculate the Amount of sleep you need to be fresh for your ***Work*** and ***Stay Active*** Through the day
-
-
-
-> Your future depends on your dreams, so go to sleep.
->
-> -Mesut Barazany.
 
  title : Sleep Calculator
 information: This Website is there to Provide a Better Sleeping Pattern for the Consumers
@@ -36,3 +26,15 @@ features : {
   Referral System,
   Affiliate Program,
 }
+
+-->
+
+# Sleep Calculator
+
+### Calculate the Amount of sleep you need to be fresh for your ***Work*** and ***Stay Active*** Through the day
+
+
+
+> Your future depends on your dreams, so go to sleep.
+>
+> -Mesut Barazany.
