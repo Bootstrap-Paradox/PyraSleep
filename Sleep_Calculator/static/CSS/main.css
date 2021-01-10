@@ -178,9 +178,10 @@ a {
   background-color: #2B2A3C;
   color: #FD6E65;
   margin: 50px auto 50px auto;
-  width: 40%;
+  width: 70%;
   height: 217px;
   text-align: center;
+  border-radius: 16px;
 }
 
 #time-result-display h1 {
@@ -190,11 +191,17 @@ a {
 
 .calculate-btn {
   padding: 10px 40px;
-  margin: auto;
+  margin: 20px;
   color: #FF6584;
   background-color: #3F3D56;
   border: none;
   font-size: 2.2rem;
   border-radius: 50px;
   box-shadow: 2px 2px 3px #282739;
+  transition: all 0.3s ease 0s;
+}
+
+.calculate-btn:hover {
+  background-color: #FD6E65;
+  color: #3F3D56;
 }
