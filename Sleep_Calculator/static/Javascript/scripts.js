@@ -1,47 +1,86 @@
 
-class calculateTime  {
+
+class Clock { // A Clock Class
 
   constructor(){
-    this.name = "Clock";
+    this.time;
+    this.hour = 0;
+    this.minute = 0;
+    this.second = 0;
+    this.meridiem = '';
+    this.updateTime();
+  }
+
+  updateTime(){
+    this._getTime();
+    this._convertHour();
+    this._timeToString();
+  }
+
+  _getTime(){
+   var time = new Date(); // Created New Instance of Data
+   this.hour = time.getHours();
+   this.minute = time.getMinutes();
+   this.second = time.getSeconds();
+ }
+
+ _convertHour() {
+   // This methods converts the 24 hour method to 12 hour method
+
+   let hour = this.hour;
+   this.hour = this.hour % 12;
+
+   if (this.hour == 0){
+     this.hour = 12;
+   }
+   if (hour >= 0 && hour <= 12){
+     this.meridiem = 'am';
+   }else {
+     this.meridiem = 'pm';
+   }
+ }
+
+ _timeToString() {
+   this.time = this.hour.toString() + " : " + this.minute.toString() + " " +this.meridiem;
+ }
+
+ // getTimeInfo(){
+ //   return [this.hour, this.minute, this.second, this.meridiem];
+ // }
+
+}
+
+
+
+// Ectends the fucntionality of  Clock
+class calculateTime extends Clock {
+
+  constructor(){
+    super();
   }
 
 
   calculateSleepTime() {
-    let [hour, min] = this.getTime();
-    console.log(hour);
-  }
-
-
-   calculate(){
-    return this.getTime();
-  }
-
-   getTime(){
-    let hour,minute;
-    var time = new Date(); // Created New Instance of Data
-    hour = time.getHours();
-    minute = time.getMinutes();
-    return [hour, minute];
-  }
-
-  displayTime(hour, minute){
+    super.updateTime();
+    this.displayTime();
 
   }
 
-  // calculate: function(){
-  //   return this.getTime();
-  // },
-  // getTime : function(){
-  //   let hour,minute;
-  //   var time = new Date(); // Created New Instance of Data
-  //   hour = time.getHours();
-  //   minute = time.getMinutes();
-  //   return [hour, minute];
-  // },
-  // addSleepTime: function() {
-  //
-  // },
-  //
+
+  displayTime(){
+    console.log(this.time);
+    document.getElementById("display-time").innerHTML = this.time;
+  }
+
+
+
+  _calculateTime(){
+
+  }
+  //Convert time
+  //display time
+  //add Calculated time for sleep
+  // calculate time
 }
 
 
@@ -49,7 +88,6 @@ function calculate(){
   // Main use of this func is to SHOW CASE the time Calculated on the Webpage.
   let time = new calculateTime();
   time.calculateSleepTime();
-  // document.getElementById('display-time').innerHTML = currentTime;
 }
 
 calculate();
