@@ -1,26 +1,62 @@
 
-let calculateTime = {
-  calculate: function(){
+class calculateTime  {
+
+  constructor(){
+    this.name = "Clock";
+  }
+
+
+  calculateSleepTime() {
+    let [hour, min] = this.getTime();
+    console.log(hour);
+  }
+
+
+   calculate(){
     return this.getTime();
-  },
-  getTime : function(){
+  }
+
+   getTime(){
     let hour,minute;
-    var time = new Date();
+    var time = new Date(); // Created New Instance of Data
     hour = time.getHours();
     minute = time.getMinutes();
-    document.getElementById('display-time').innerHTML= hour;
     return [hour, minute];
   }
+
+  displayTime(hour, minute){
+
+  }
+
+  // calculate: function(){
+  //   return this.getTime();
+  // },
+  // getTime : function(){
+  //   let hour,minute;
+  //   var time = new Date(); // Created New Instance of Data
+  //   hour = time.getHours();
+  //   minute = time.getMinutes();
+  //   return [hour, minute];
+  // },
+  // addSleepTime: function() {
+  //
+  // },
+  //
 }
 
 
 function calculate(){
   // Main use of this func is to SHOW CASE the time Calculated on the Webpage.
-  console.log(calculateTime.calculate());
+  let time = new calculateTime();
+  time.calculateSleepTime();
+  // document.getElementById('display-time').innerHTML = currentTime;
 }
 
 calculate();
 
-window.onload = function(){
-  calculate();
-}
+
+// The window is available only on the web Browser
+
+// window.onload = function(){
+//   calculate();
+// }
