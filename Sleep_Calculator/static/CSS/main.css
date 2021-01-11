@@ -177,14 +177,16 @@ a {
 #time-result-display {
   background-color: #2B2A3C;
   color: #FD6E65;
+  display: flex;
   margin: 50px auto 50px auto;
   width: 70%;
   height: 217px;
+  justify-content:center;
   text-align: center;
   border-radius: 16px;
 }
 
-#time-result-display h1 {
+#display-time {
   margin: auto;
 }
 
@@ -196,6 +198,7 @@ a {
   background-color: #3F3D56;
   border: none;
   font-size: 2.2rem;
+  font-weight: bold;
   border-radius: 50px;
   box-shadow: 2px 2px 3px #282739;
   transition: all 0.3s ease 0s;
