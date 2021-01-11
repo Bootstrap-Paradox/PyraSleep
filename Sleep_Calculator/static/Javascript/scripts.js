@@ -33,7 +33,7 @@ class Clock { // A Clock Class
    if (this.hour == 0){
      this.hour = 12;
    }
-   if (hour >= 0 && hour <= 12){
+   if (hour >= 0 && hour <= 11){
      this.meridiem = 'am';
    }else {
      this.meridiem = 'pm';
