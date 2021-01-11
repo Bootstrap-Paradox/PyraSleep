@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 class Clock { // A Clock Class
 
@@ -98,5 +97,3 @@ calculate();
 // window.onload = function(){
 //   calculate();
 // }
-=======
->>>>>>> master
