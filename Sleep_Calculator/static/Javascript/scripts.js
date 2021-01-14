@@ -2,8 +2,8 @@
 class Clock { // A Clock Class
 
   constructor(){
-    this.time;
-    this.timeWithSeconds;
+    this.time; // Universal Time Storage
+
     this.hour = 0;
     this.minute = 0;
     this.second = 0;
@@ -12,9 +12,13 @@ class Clock { // A Clock Class
   }
 
   updateTime(){
-    this._getTime();
-    [this.hour, this.meridiem] = this._convertHour(this.hour);
-    this.time = this._getTimeToString(this.hour, this.minute, this.second, this.meridiem);
+    this._getTime(); // Gets the time from the Date Class
+    this.setTime(); // Sets the time variable
+  }
+
+  setTime(){
+    //[this.hour, this.meridiem] = this._convertHour(this.hour); // converts 24 Hours Method in to 12 Hours
+    this.time = this._getTimeToString(this.hour, this.minute, this.second, this.meridiem); // Converts the Numbers to String to be Viewed
   }
 
   _getTime(){
@@ -29,28 +33,24 @@ class Clock { // A Clock Class
 
    let newHour = hour % 12;
    let meridiem;
-   if (newHour == 0){
-     newHour = 12;
-   }
-   if (hour >= 24){
-   }
-   if (hour >= 0 && hour < 12){
+
+   if ((hour >= 0 && hour <= 11) || hour >= 24){
      meridiem = 'am';
-   }else {
+   }else if(hour >= 12 && hour <= 23){
      meridiem = 'pm';
-     if (hour >= 24){
-       meridiem = "am";
-     }
+   }else{
+     meridiem = 'System Error';
    }
-   return [newHour, meridiem];
+   return [hour%12 != 0?hour%12:12, meridiem];
  }
 
 
  _getTimeToString(hour, minute, meridiem) {
-   let min = minute>=1 && minute <=9?''.concat("0",minute.toString()) :minute.toString();
+   let min = minute>=0 && minute <=9?''.concat("0",minute.toString()) :minute.toString();
    let h = hour>=1 && hour <=9?''.concat("0",hour.toString()) :hour.toString();
+
    let time = h + ":" + min + " " + meridiem;
-   //this.timeWithSeconds = this.hour.toString() + " : " + this.minute.toString() + " : " + this.second.toString() + " " + this.meridiem;
+
    return time;
  }
 }
@@ -75,7 +75,7 @@ class calculateTime extends Clock {
 
 
   displayTime(){
-    console.log(this.time);
+    //console.log(this.time);
     document.getElementById("display-time").innerHTML = this.calSleepTime.join(' , ');
   }
 
@@ -94,21 +94,16 @@ class calculateTime extends Clock {
     if (min >= 0 && min <= 29){
       hour+=1;
       min+=30;
-      if (hour >= 12){
-        this._addToList(hour,min);
-      }
+      this._addToList(hour,min);
     }else {
       hour += 2;
       min += 30;
       min -= 60;
-      min %= 6;
+
       this._addToList(hour, min);
     }
   }
-console.log(this.calSleepTime.join(", "));
-
-
-    //console.log(this.calSleepTime.push(time));
+// console.log(this.calSleepTime.join(", "));
   }
 
 }
@@ -122,11 +117,11 @@ function calculate(){
   time.calculateSleepTime();
 }
 
-calculate();
+
 
 
 // The window is available only on the web Browser
 
-// window.onload = function(){
-//   calculate();
-// }
+window.onload = function(){
+  calculate();
+}
