@@ -1,0 +1,62 @@
+header {
+  background-color: #282739;
+  display: flex;
+  font-size: 1.7rem;
+  height: 149px;
+  flex-direction: row;
+  align-items:center;
+  text-align: center;
+}
+
+
+.custom-navbar {
+  display: flex;
+  padding: 56px 0px 56px 0px;
+  flex-direction: row;
+  align-items: center;
+  justify-content:center;
+  text-align: center;
+}
+
+.custom-navbar h1{
+  position: absolute;
+  left: 6%;
+}
+
+
+a {
+  color: #62607C;
+  text-decoration: none;
+}
+
+.logo {
+  cursor: pointer;
+  font-size: 48px;
+  font-weight: 400;
+  color: #FF6584;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #FF6584;
+}
+
+.navigation {
+  position: absolute;
+  left: 55%
+}
+
+.navigation li{
+  display: inline-block;
+  padding: 0px 20px;
+  font-size: 0.75em;
+}
+
+.navigation li a {
+  text-decoration:none;
+  transition: all 0.3s ease 0s;
+}
+
+.navigation li a:hover {
+  color: #FF6584;
+}

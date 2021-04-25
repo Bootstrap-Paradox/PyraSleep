@@ -1,0 +1,108 @@
+
+.home-page {
+  display: grid;
+  padding: 0;
+  grid-template-areas:
+  "section1"
+  "section2";
+}
+
+.home-section-1 {
+  grid-area: section1;
+  height:800px;
+  position: relative;
+  /* border: 2px solid;
+  border-color: red; */
+  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  grid-template-areas:
+  'CTA img';
+  align-items: center;
+  justify-items: center;
+}
+
+
+.CTA-section{
+  grid-area: CTA;
+  position: absolute;
+  /* left: 99px; */
+  /* top: 249px; */
+  /* border: 2px solid red; */
+}
+
+.CTA-section h1, h2, h3, h4, h5, h6,p {
+  color: #62607C;
+}
+
+
+.CTA-section h1 {
+  font-size: 3.1rem;
+}
+
+
+.CTA-section button{
+  border: none;
+  padding: 16px 32px;
+  margin: 50px 0px 0px 0px;
+  border-radius: 1rem;
+  cursor: pointer;
+  background-color: #FD6E65;
+  color: #3F3D56;
+  transition: all 0.3s ease 0s;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 3px 3px 16px #282739;
+}
+
+.CTA-section button:hover {
+  background-color: #FD6E65;
+  color: #3F3D56;
+  box-shadow: 12px 12px 16px #282739;
+}
+
+
+.moonlight {
+  /* border: 1px solid red; */
+
+  grid-area: img;
+  position: absolute;
+  bottom: 0;
+  width: 70%;
+  /* transform: scale(-1,1); */
+}
+
+
+/* Section-2 */
+
+.home-section-2 {
+  grid-area: section2;
+  background-color: #2C2B3C;
+  margin: 0px;
+}
+
+.sleep-info {
+  background-color: #323145;
+  display: grid;
+  width: auto;
+  margin: auto;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.sleep-info div{
+  margin: 60px;
+}
+
+.sleep-info h2{
+  font-size: 3.2rem;
+  margin-bottom: 60px;
+  color: #FD6E65;
+}
+
+.sleep-info p{
+  font-size: 1.9rem;
+  margin: 0 40px;
+}
