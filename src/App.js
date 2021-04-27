@@ -8,6 +8,7 @@ import NavBar from './Widgets/NavBar.js';
 import Home from './Pages/home/home';
 import About from './Pages/about/about';
 import Calculate from './Pages/calculate/calculate';
+import Schedule from './Pages/calculate/schedule';
 import Information from './Pages/information/information';
 import Error from './Pages/error';
 
@@ -30,6 +31,10 @@ function App() {
 
       <Route path="/calculate">
         <Calculate />
+      </Route>
+
+      <Route path="/schedule">
+        <Schedule />
       </Route>
 
       <Route path="/information">

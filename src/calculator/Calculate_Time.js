@@ -1,89 +1,110 @@
-import {Clock} from './clock';
 
-
-// Extends the fucntionality of  Clock
-export class CalculateTime extends Clock {
+class SleepCalculator {
 
   constructor(){
-    super();
-    // this.nextTime;
-    this.calSleepTime = [];
+
   }
 
+  calculateTime(newTime) {
+    return [this.calculateRemTime(newTime),
+      this._beautifyTime(
+        newTime.getHours(),
+        newTime.getMinutes()
+    )];
+  }
 
-  calculateWakeTime() {
-    const [hour, minute] = super.getRaw();
-    let newHour = hour;
-    let newMinute = minute;
-    let deviate = true;
-    let calTime = [];
-    for (let i = 0; i <5 ; i++){
-        [newHour, newMinute] = this._calRemTime(newHour, newMinute, deviate);
-        deviate = false;
-        const [convertedHour, meridiem] = super._convert_12_hour_method(newHour);
-
-        calTime.push(super._getTimeToString(convertedHour, newMinute, meridiem));
+  calPowerNap(currentTime){
+    const calculatedTime = [];
+    let finalTime;
+    for (let i = 0; i < 3; i++){
+      [currentTime, finalTime] = this.calculateTime(currentTime);
+      calculatedTime.push(finalTime);
     }
-    return calTime.join(' , ');
+    return calculatedTime;
   }
 
-  calculateScheduledWakeTime(hour, minute, meridiem){
-    this._calculateRemTime(hour,minute, meridiem);
+  scheduleSleepTime(currentTime){
+    const calculatedTime = [];
+    let finalTime;
+    for (let i = 0; i< 5; i++){
+      [currentTime, finalTime] = this.calculateTime(currentTime, false);
+      calculatedTime.push(finalTime);
+    }
+    return calculatedTime;
   }
 
-  // calculateScheduledSleepTime(hour, minute, meridiem){
-  //   console.log('it ran');
-  // }
 
-  // displayCalculatedTime(){
-  //   //console.log(this.time);
-  //   document.getElementById("display-time").innerHTML = this.calSleepTime.join(' , ');
-  // }
+  calWakeTime(currentTime){
+    const calculatedTime = [];
+    let finalTime;
+    for (let i = 0; i < 5; i++){
+      [currentTime, finalTime] = this.calculateTime(currentTime);
 
-  // calculateRemCurrentWakeTime(){ // Calculates the Current Rem Cycle to Wake up
-  //   this._calculateRemTime(this.hour, this.minute);
-  // }
+      calculatedTime.push(finalTime);
 
-
-
-  calculatePowerNap(){
-    const [hour, minute] = super.getRaw();
-    console.log(hour);
-    let newHour = hour;
-    let newMinute = minute;
-    let calTime = [];
-    for (let i = 0; i <= 2; i++){
-      [newHour, newMinute] = this._calRemTime(newHour, newMinute);
-      const [convertedHour, meridiem] = super._convert_12_hour_method(newHour);
-      calTime.push(super._getTimeToString(convertedHour, newMinute, meridiem));
+    }
+    return calculatedTime;
   }
-  return calTime.join(' , ');
-}
 
-
-  // => => => => => => => => => => => => => => Rem Time Calculator
-
-  _calRemTime(hour, minute, deviate=false){
-    let newHour = 0;
-    let newMinute = 0;
-    if (deviate){
-      if (minute >= 45){
-        hour+= 1;
-      }
-      minute += 15;
+    scheduleWakeTime(hour, minute, meridiem){
+      const newHour = this._convert_24_hour_method(hour, meridiem);
+      const time = new Date(
+      new Date().getFullYear(),
+      new Date().getMonth(),
+      new Date().getDay(),
+      newHour,
+      minute
+    );
+    console.log(time.toString());
+    const newTime = this.calWakeTime(time);
+    return newTime;
     }
 
+  _beautifyTime(hour, minute){
+    let [convertedHour, meridiem] = this._convert_12_hour_method(hour);
+    let newMinute = minute>=0 && minute <=9?''.concat("0",minute.toString()) :minute.toString();
+    let newHour = convertedHour>=1 && convertedHour <=9?''.concat("0",convertedHour.toString()) :convertedHour.toString();
+    return `${newHour}:${newMinute} ${meridiem}`;
+  }
 
-    if (minute >= 0 && minute <= 29){
-      newHour = hour + 1;
-      newMinute = minute + 30;
+  calculateRemTime(time, minutesToAdd = 90){
+      time.setMinutes(time.getMinutes() + minutesToAdd);
+
+    return time;
+  }
+
+  _getMeridiem = (hour) => (hour >= 0 && hour <= 11) || hour >= 24 ? 'am' : 'pm'; // Calculates the Meridiem for the hour
+
+
+ _convert_12_hour_method(hour) {
+   // This methods converts the 24 hour method to 12 hour method and meridiem
+   let convertedHour = hour%12 !== 0 ? hour%12 : 12; // Converts 24 hour method to 12 hour method
+   let meridiem = this._getMeridiem(hour);
+   return [convertedHour, meridiem];
+ }
+
+ _convert_24_hour_method(hour, meridiem){
+   if (meridiem == 'am'){
+     return hour
+   }else if (hour == 12 && meridiem == 'pm') {
+     return 0;
+   }
+   else{
+     return hour+12;
+   }
+ }
+
+  roundOff(time){
+    if (typeof time === 'object'){
+      const reverseMinute = time.getMinutes().toString().split("").reverse().join("");
+      let roundOff = parseInt((reverseMinute % 10) + 1) * 10;
+      time.setMinutes(roundOff);
+      return time;
     }else{
-      newHour = hour + 2;
-      newMinute = minute + 30; // add 90 Minutes to the time if after minute > 30
-
-      newMinute -= 60; // This brings the time back to the 60 minute Method
+      throw 'Instance Invalid';
     }
-    console.log(newHour, newMinute);
-    return [newHour, newMinute];
-  };
+  }
+
 }
+
+export default SleepCalculator;

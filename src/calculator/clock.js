@@ -44,21 +44,16 @@ export class Clock { // A Clock Class
 
 
 
-  getMeridiem = (hour) => (hour >= 0 && hour <= 11) || hour >= 24 ? 'am' : 'pm'; // Calculates the Meridiem for the hour
 
-
- _convert_12_hour_method(hour) {
-   // This methods converts the 24 hour method to 12 hour method and meridiem
-   let convertedHour = hour%12 !== 0 ? hour%12 : 12; // Converts 24 hour method to 12 hour method
-   let meridiem = this.getMeridiem(hour);
-   return [convertedHour, meridiem];
- }
 
 // This feature must be added in the future
 _convert_24_hour_method(hour, meridiem){
   if (meridiem == 'am'){
     return hour
-  }else if (meridiem == 'pm'){
+  }else if (hour == 12 && meridiem == 'pm') {
+    return 0;
+  }
+  else{
     return hour+12;
   }
 }

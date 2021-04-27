@@ -1,29 +1,23 @@
 import React, {useState, useEffect} from 'react';
 import {powerNap, wakeUp} from './scripts.js';
+import {Link} from 'react-router-dom';
 
 import './calculate.css';
 
-import Sleep from '../../Asset/sleep.svg'
+import Sleep from '../../Asset/sleep.svg';
 
 const Calculate = () => {
 
   const [time, setTime] = useState('');
 
   const calculatePowerNap = () => {
-    setTime(powerNap());
+    setTime(powerNap().join(' , '));
   }
 
   const calculateWakeTime = () => {
-    setTime(wakeUp());
+    setTime(wakeUp().join(' , '));
   }
 
-  const test = () => {
-    var minToAdd = 90;
-    var currentDate = new Date();
-    const futureDate = new Date(currentDate.getTime() + minToAdd*60000);
-    console.log(futureDate);
-    setTime(futureDate.toString());
-  }
 
   useEffect(() => {
   calculatePowerNap();
@@ -33,24 +27,24 @@ const Calculate = () => {
   return (
 <div id="calculate-page">
 
-  <div id="time-result-display">
+  <section id="time-result-display">
   <h1 id='display-time'>{time}</h1>
-  </div>
+  </section>
 
   <div className="btn-display">
 
-    <BeautifulButton calculate={calculatePowerNap} name='Power Nap'/>
-    <BeautifulButton calculate={calculateWakeTime} name='Sleep Now'/>
-    <BeautifulButton calculate={test} name='Test' />
+    <BeautifulButton operation={calculatePowerNap} name='Power Nap'/>
+    <BeautifulButton operation={calculateWakeTime} name='Sleep Now'/>
+    <Link to='/schedule' > <BeautifulButton operation={() => {}} name='Schedule' /> </Link>
 
   </div>
 </div>
   );
 }
 
-const BeautifulButton = ({calculate, name}) => {
+const BeautifulButton = ({operation, name}) => {
   return (
-    <div className="box-btn-lg-icon" onClick={calculate}>
+    <div className="box-btn-lg-icon" onClick={operation}>
 
       <div className="box-btn-lg-icon-img-bg"></div>
 

@@ -1,16 +1,15 @@
 //import CalculateTime from '/Users/sid/Documents/Web Design/Pyra-Web-SleepCalculator/Sleep_Calculator/static/Javascript/packages/CalculateTime.js';
-import {CalculateTime} from '../../calculator/Calculate_Time';
+import SleepCalculator from '../../calculator/Calculate_Time';
 
 // To be Worked at End
 
 
-let time = new CalculateTime();
+var sleep = new SleepCalculator();
 
 export function powerNap(){
-  return time.calculatePowerNap();
+  return sleep.calPowerNap(sleep.roundOff(new Date()));
 }
 
 export function wakeUp(){
-  let calTime = time.calculateWakeTime();
-  return calTime;
+  return sleep.calWakeTime(sleep.roundOff(new Date()));
 }
