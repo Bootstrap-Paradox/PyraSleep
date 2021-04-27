@@ -10,18 +10,8 @@ const Calculate = () => {
 
   const [time, setTime] = useState('');
 
-  const calculatePowerNap = () => {
-    setTime(powerNap().join(' , '));
-  }
-
-  const calculateWakeTime = () => {
-    setTime(wakeUp().join(' , '));
-  }
-
-
   useEffect(() => {
-  calculatePowerNap();
-  // console.log('Hello');
+    setTime(powerNap().join(' , '))
 }, []);
 
   return (
@@ -33,8 +23,8 @@ const Calculate = () => {
 
   <div className="btn-display">
 
-    <BeautifulButton operation={calculatePowerNap} name='Power Nap'/>
-    <BeautifulButton operation={calculateWakeTime} name='Sleep Now'/>
+    <BeautifulButton operation={() => {setTime(powerNap().join(' , '));}} name='Power Nap'/>
+    <BeautifulButton operation={() => {setTime(wakeUp().join(' , '));}} name='Sleep Now'/>
     <Link to='/schedule' > <BeautifulButton operation={() => {}} name='Schedule' /> </Link>
 
   </div>

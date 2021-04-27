@@ -1,52 +1,28 @@
 
 class SleepCalculator {
 
-  constructor(){
-
-  }
-
-  calculateTime(newTime) {
-    return [this.calculateRemTime(newTime),
+  calculateTime(newTime, backward=false) {
+    return [this.calculateRemTime(newTime, backward),
       this._beautifyTime(
         newTime.getHours(),
         newTime.getMinutes()
     )];
   }
 
-  calPowerNap(currentTime){
-    const calculatedTime = [];
-    let finalTime;
-    for (let i = 0; i < 3; i++){
-      [currentTime, finalTime] = this.calculateTime(currentTime);
-      calculatedTime.push(finalTime);
-    }
-    return calculatedTime;
+  scheduleIdleTime(hour, minute, meridiem, iterations=5, backward=false){
+    return this.findIdleTime(this.getTime(hour, minute, meridiem), iterations, backward);
   }
 
-  scheduleSleepTime(currentTime){
-    const calculatedTime = [];
-    let finalTime;
-    for (let i = 0; i< 5; i++){
-      [currentTime, finalTime] = this.calculateTime(currentTime, false);
-      calculatedTime.push(finalTime);
+  findIdleTime(time, iterations=5, backward=false) {
+    const idleTimes = [];
+    for (let i =0; i < iterations; i++){
+      var [time, finalTime] = this.calculateTime(time, backward);
+      idleTimes.push(finalTime);
     }
-    return calculatedTime;
+    return idleTimes;
   }
 
-
-  calWakeTime(currentTime){
-    const calculatedTime = [];
-    let finalTime;
-    for (let i = 0; i < 5; i++){
-      [currentTime, finalTime] = this.calculateTime(currentTime);
-
-      calculatedTime.push(finalTime);
-
-    }
-    return calculatedTime;
-  }
-
-    scheduleWakeTime(hour, minute, meridiem){
+  getTime(hour, minute, meridiem){
       const newHour = this._convert_24_hour_method(hour, meridiem);
       const time = new Date(
       new Date().getFullYear(),
@@ -55,10 +31,10 @@ class SleepCalculator {
       newHour,
       minute
     );
-    console.log(time.toString());
-    const newTime = this.calWakeTime(time);
-    return newTime;
-    }
+      return time;
+  }
+
+
 
   _beautifyTime(hour, minute){
     let [convertedHour, meridiem] = this._convert_12_hour_method(hour);
@@ -67,9 +43,12 @@ class SleepCalculator {
     return `${newHour}:${newMinute} ${meridiem}`;
   }
 
-  calculateRemTime(time, minutesToAdd = 90){
-      time.setMinutes(time.getMinutes() + minutesToAdd);
-
+  calculateRemTime = (time, backward=false ,remMinute = 90) =>{
+    if (backward){
+      time.setMinutes(time.getMinutes() - remMinute);
+    }else{
+      time.setMinutes(time.getMinutes() + remMinute);
+    }
     return time;
   }
 

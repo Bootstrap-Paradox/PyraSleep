@@ -7,9 +7,17 @@ import SleepCalculator from '../../calculator/Calculate_Time';
 var sleep = new SleepCalculator();
 
 export function powerNap(){
-  return sleep.calPowerNap(sleep.roundOff(new Date()));
+  return sleep.findIdleTime(sleep.roundOff(new Date()), 3);
 }
 
 export function wakeUp(){
-  return sleep.calWakeTime(sleep.roundOff(new Date()));
+  return sleep.findIdleTime(sleep.roundOff(new Date()));
+}
+
+export function scheduleWakeTime([hour, minute, meridiem]){
+  return sleep.scheduleIdleTime(hour, minute, meridiem);
+}
+
+export function scheduleSleepTime([hour, minute, meridiem]){
+  return sleep.scheduleIdleTime(hour, minute, meridiem,5, true).reverse();
 }

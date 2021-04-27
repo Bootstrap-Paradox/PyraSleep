@@ -157,3 +157,23 @@
   color: var(--box-btn-lg-icon-text-inverted);
   font-size: 24px;
 }
+
+
+/* Forms */
+
+.form{
+
+}
+
+.form input{
+  margin:30px auto;
+  background: #3F3D56;
+}
+
+.form select{
+  background-color: #3F3D56;
+  color: #FD6E65;
+  margin: auto 20px;
+  border-color: transparent;
+  border-radius: 6px;
+}
